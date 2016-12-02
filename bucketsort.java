@@ -12,14 +12,16 @@ class bucketsort{
 		for (int i = 1; i<4; i++)
 			array2.add(i*2);
 		Integer[] b = array2.toArray(new Integer[array2.size()]);
-		a = sort(a, b);
+		E[] c = (E[])a;
+		E[] d = (E[])b;
+		c = sort(c, d);
 		for (int i=0; i < a.length; i++)
 			System.out.print(a[i]);
 	}
 	
 	public static <E extends Comparable<E>> E[] sort(E[] array, E[] separator){
 		//Buckets erstellen
-		Bucket<Object>[] buckets = (Bucket<Object>[])new Object[separator.length +1];
+		Bucket<Object>[] buckets = (Bucket<Object>[])new Bucket[separator.length +1];
 		//in Buckets sortieren
 		for (int i = 0; i<array.length; i++){
 			int j = 0;
@@ -39,7 +41,7 @@ class bucketsort{
 		return bigarray;
 	}
 	
-	public static <E extends Comparable<E>> E[] addAll(E[] eins, E[] zwei){
+	public static <E extends Comparable<E>> E[] addAll(E[] eins, E[] zwei){		//addiert 2 arrays
 		E[] neu = (E[])new Object[eins.length+zwei.length];
 		for (int i = 0; i<eins.length;i++)
 			neu[i] = eins[i];
@@ -48,7 +50,7 @@ class bucketsort{
 		return neu;
 	}
 	
-	public static <E extends Comparable<E>> E[] insertionsort (E[] array){
+	public static <E extends Comparable<E>> E[] insertionsort (E[] array){ 		//Sortiert ein array
 		int count = 0;
 		for (int i = 1; i < array.length; i++){
 				E a = array[i];
