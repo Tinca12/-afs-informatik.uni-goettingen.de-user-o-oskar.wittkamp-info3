@@ -1,0 +1,4 @@
+>Sequenz 1
+MTE
+>Sequenz 2
+SAT
